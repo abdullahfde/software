@@ -24,6 +24,7 @@ class course(models.Model):
     classroom=models.CharField(max_length=30)
     times=models.CharField(max_length=30)
     students = models.ManyToManyField(student)
+    teachers=models.ForeignKey(teacher)
 
 
 
