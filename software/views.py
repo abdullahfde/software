@@ -94,17 +94,17 @@ def select(request):
         form = EnrollForm(request.POST)
         if form.is_valid():
             print form.cleaned_data["students1"]
-            studentname = student.objects.get(first_name=form.cleaned_data["students1"])
-            coursename= course.objects.get(name=form.cleaned_data["courses"])
-            coursename.students.add( studentname)
+            student_name = student.objects.get(first_name=form.cleaned_data["students1"])
+            course_name= course.objects.get(name=form.cleaned_data["courses"])
+            course_name.students.add( student_name)
             return HttpResponseRedirect("/all_course_student/"+form.courses.cleaned_data["courses"])
 
     form=EnrollForm()
     return render_to_response("enroll.html",
                               {"form":form},RequestContext(request))
 def all_course(request,a):
-    c = course.objects.get(name=a)
+    vv= course.objects.get(name=a)
     return render_to_response("allenroll.html",
-                              {"course_student_list":c.students.all()})
+                              {"course_student_list":vv.students.all()})
 
 
