@@ -20,11 +20,24 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from software import count
+from software import views
+from software import view1
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'histogram/', count.count_number_word),
+    url(r'^add-teacher/$',views.add_teacher),
+    url(r'^all-teacher/$',views.all_teacher),
+    url(r'^addstudent/$',views.addstudent),
+    url(r'^all-students/$',views.all_students),
+    url(r'^addcourse/$',views.addcourses),
+    url(r'^all-course/$',views.all_courses),
+    url(r'^select_course/$',views.select),
+    url(r'^all_course_student/(.*)/$',views.all_course),
+
+
+
 
 ]
 
